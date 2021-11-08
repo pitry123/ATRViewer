@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <MONITORING_COMM_DEFS_MEM index="0" type="STRUCT">
+    <remoteAddress index="0" type="STRING" size="16">127.0.0.1</remoteAddress>
+    <remotePort    index="1" type="UINT16_T" >8888</remotePort>
+    <localAddress  index="2" type="STRING" size="16">127.0.0.1</localAddress>
+    <localPort     index="3" type="UINT16_T" >7777</localPort>
+  </MONITORING_COMM_DEFS_MEM>
+  <DDS_PARAMS index="1" type="STRUCT">
+    <DomainId index="0" type="INT" >0</DomainId>
+    <QosFilePathWindows index="1" type="STRING" size="256">%PROGRAMFILES%/ElbitSystemsLtd/Carmel/ELBIT_CARMEL_QOS_PROFILES.xml</QosFilePathWindows>
+    <QosFilePathLinux index="2" type="STRING" size="256">/home/vlws1/development/ELBIT_CARMEL_QOS_PROFILES.xml</QosFilePathLinux>
+  </DDS_PARAMS>
+  <UI_PARAMS index="2" type="STRUCT">
+    <FullScreen index="0" type="BOOL">true</FullScreen>
+    <Title index="1" type="STRING" size="128"></Title>
+    <ScreenOffsetX index="2" type="INT">0</ScreenOffsetX>
+    <ScreenOffsetY index="3" type="INT">0</ScreenOffsetY>
+    <ScreenHeight index="4" type="INT">768</ScreenHeight>
+    <ScreenWidth index="5" type="INT">1280</ScreenWidth>
+  </UI_PARAMS>
+  <COLORS_DETECTION index="3" type="STRUCT">
+    <Unknown index="0" type="STRING" size="16">green</Unknown>
+	<Man index="1" type="STRING" size="16">green</Man>
+	<Vehicle index="2" type="STRING" size="16">red</Vehicle>
+	<Armored_Vehicle index="3" type="STRING" size="16">red</Armored_Vehicle>
+	<Anti_Tank index="4" type="STRING" size="16">red</Anti_Tank>
+	<Sniper index="5" type="STRING" size="16">red</Sniper>
+  </COLORS_DETECTION>
+  <FILTER_CLASSIFICATION index="4" type="STRUCT">
+    <Unknown index="0" type="BOOLEAN">true</Unknown>
+	<Man index="1" type="BOOLEAN">true</Man>
+	<Vehicle index="2" type="BOOLEAN">true</Vehicle>
+	<Armored_Vehicle index="3" type="BOOLEAN">true</Armored_Vehicle>
+	<Anti_Tank index="4" type="BOOLEAN">true</Anti_Tank>
+	<Sniper index="5" type="BOOLEAN">true</Sniper>
+  </FILTER_CLASSIFICATION>
+  <CHANNEL_TYPE_VALID index="5" type="STRUCT">
+    <Atr index="0" type="BOOLEAN">true</Atr>
+    <Vmd index="1" type="BOOLEAN">true</Vmd>
+    <TrackerValid index="2" type="BOOLEAN">true</TrackerValid>
+  </CHANNEL_TYPE_VALID>
+  <CHANNELS_INPUT_STREAM index="6" type="STRUCT">
+	<CHANNELS_INPUT_STREAM_0 index="0" type="STRUCT">
+		<SourceName index="0" type="STRING" size="32">SAPIR_F_CAM_D</SourceName>
+		<Latency index="1" type="INT">500</Latency>
+		<IsActive index="2" type="BOOLEAN">true</IsActive>
+	</CHANNELS_INPUT_STREAM_0>
+	<CHANNELS_INPUT_STREAM_1 index="1" type="STRUCT">
+		<SourceName index="0" type="STRING" size="32">SAPIR_F_CAM_N</SourceName>
+		<Latency index="1" type="INT">500</Latency>
+		<IsActive index="2" type="BOOLEAN">true</IsActive>
+	</CHANNELS_INPUT_STREAM_1>
+	<CHANNELS_INPUT_STREAM_2 index="2" type="STRUCT">
+		<SourceName index="0" type="STRING" size="32">suzi2</SourceName>
+		<Latency index="1" type="INT">1000</Latency>
+		<IsActive index="2" type="BOOLEAN">false</IsActive>
+	</CHANNELS_INPUT_STREAM_2>
+	<CHANNELS_INPUT_STREAM_3 index="3" type="STRUCT">
+		<SourceName index="0" type="STRING" size="32">suzi3</SourceName>
+		<Latency index="1" type="INT">1000</Latency>
+		<IsActive index="2" type="BOOLEAN">false</IsActive>
+	</CHANNELS_INPUT_STREAM_3>
+  </CHANNELS_INPUT_STREAM>
+  <ACTIVE_NTP index="7" type="BOOL">true</ACTIVE_NTP>
+</root>

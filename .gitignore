@@ -1,11 +1,13 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
+# C++ objects and libs
 *.slo
 *.lo
 *.o
 *.obj
+*.lock
+*.orig
+*.pdb
+*.ilk
+*.exp
 
 # Precompiled Headers
 *.gch
@@ -15,10 +17,6 @@
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -30,3 +28,58 @@
 *.exe
 *.out
 *.app
+
+# Enterprise Architect
+*.ldb
+
+# Qt project
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+moc_predefs.h
+
+/.qmake.cache
+/.qmake.stash
+
+# QtCreator
+*.autosave
+
+# QtCtreator Qml
+*.qmlproject.user
+*.qmlproject.user.*
+*.qmlc
+
+# QtCtreator CMake
+CMakeLists.txt.user
+
+# Visual Studio
+/.vs
+/VSProject
+build/
+.vs
+
+# Conan (QMake)
+conanbuildinfo.pri
+conanbuildinfo.txt
+conaninfo.txt
+graph_info.json
+conan.lock
+
+#Cmake
+CMakeCache.txt
+CMakeLists.txt.user
+/CMakeFiles
+
+
+# Project specific
+*/debug/*
+*/release/*
+*/elbit/qml/c4i/*/qmldir
+DE/workspace.de

@@ -1,0 +1,13 @@
+[requires]
+DDS/6.0.1@Framework2/Dependencies
+DDSAddon/1.0.19@Framework2.development/unstable
+Infrastructure/1.0.19@Framework2.development/unstable
+Boost/1.64.0@Framework2/Dependencies
+OpenCV/3.4.5@Framework2/Dependencies
+NGVA/1.0.19@VirtualGunner.development/unstable
+GStreamer/1.18.0@Framework2/Dependencies
+ISGVA/1.0.18@VirtualGunner.development/unstable
+Sensors/2.0.19@Halutz.development/unstable
+
+[generators]
+qmake

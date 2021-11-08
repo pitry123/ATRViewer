@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/Layout/ScreenBase.qml</file>
+        <file>qml/Components/AnchoredVideo.qml</file>
+        <file>qml/Controls/VideoItem.qml</file>
+        <file>qml/Components/TrackingBBox.qml</file>
+        <file>qml/Components/TrackingBBoxManager.qml</file>
+        <file>qml/Controls/CustomCheckBox.qml</file>
+        <file>qml/Controls/CustomComboBox.qml</file>
+        <file>Images/streamvideo.png</file>
+        <file>Images/video_camera.svg</file>
+        <file>Images/closeWindow.png</file>
+        <file>Images/minimizeWindow.png</file>
+        <file>Images/Menu_press.svg</file>
+        <file>Images/lineIcon.png</file>
+        <file>Images/menu.png</file>
+        <file>qml/Components/Settings.qml</file>
+        <file>qml/Controls/CustomToggleBotton.qml</file>
+        <file>Images/circle.png</file>
+        <file>Images/backTimerRec.svg</file>
+        <file>Images/recordBtn.png</file>
+        <file>Images/stop.png</file>
+        <file>qml/Components/Radar.qml</file>
+        <file>Images/radar_bg.png</file>
+        <file>Images/radarOff.png</file>
+        <file>Images/radarOn.png</file>
+        <file>qml/Controls/CusotomButton1.qml</file>
+        <file>Images/normalScreen.png</file>
+        <file>Images/fullScreen.png</file>
+        <file>qml/Components/GlobalSettings.qml</file>
+        <file>qml/Controls/CustomSlider.qml</file>
+        <file>Images/comboArrowBox.svg</file>
+        <file>qml/Controls/CusotomComboBox2.qml</file>
+        <file>qml/Controls/CustomBorder.qml</file>
+        <file>Images/radar_gif.gif</file>
+        <file>qml/Components/ExportDataForm.qml</file>
+        <file>qml/Controls/CustomDialogSeletFile.qml</file>
+        <file>qml/Controls/CustomFolderDialogSelect.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,1906 @@
+<?xml version="1.0"?>
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="C:/Program Files/rti_connext_dds-5.3.0/bin/../resource/schema/rti_dds_qos_profiles.xsd"
+     version="5.3.0">
+	 
+	  <!--ELBIT CARMEL QOS Version 3.3.6.10 -->
+	 
+  <qos_library name="Elbit_Carmel_Library">
+    <qos_profile name="Baseline_Profile" is_default_qos="true">
+      <participant_qos name="BaseParticipant">
+        <!--OtherDDSVendorCompatibility-->
+        <!-- <wire_protocol>
+          <rtps_auto_id_kind>RTPS_AUTO_ID_FROM_UUID</rtps_auto_id_kind>
+        </wire_protocol>  -->
+        <discovery_config>
+          <!--OtherDDSVendorCompatibility-->
+          <default_domain_announcement_period>
+            <sec>DURATION_INFINITE_SEC</sec>
+            <nanosec>DURATION_INFINITE_NSEC</nanosec>
+          </default_domain_announcement_period>
+          <publication_writer_publish_mode>
+            <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          </publication_writer_publish_mode>
+          <subscription_writer_publish_mode>
+            <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+          </subscription_writer_publish_mode>
+          <participant_liveliness_assert_period>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </participant_liveliness_assert_period>
+          <participant_liveliness_lease_duration>
+            <sec>4</sec>
+            <nanosec>0</nanosec>
+          </participant_liveliness_lease_duration>
+          <max_liveliness_loss_detection_period>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_liveliness_loss_detection_period>
+        </discovery_config>
+        <resource_limits>
+          <type_object_max_serialized_length>131072</type_object_max_serialized_length>
+          <type_code_max_serialized_length>0</type_code_max_serialized_length>
+        </resource_limits>
+        <property>
+          <value>
+            <element>
+              <!--BacwardCompatiability-->
+              <name>dds.transport.use_510_compatible_locator_kinds</name>
+              <value>false</value>
+              <propagate>true</propagate>
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.recv_socket_buffer_size</name>
+              <value>1048576</value>
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.parent.message_size_max</name>
+              <value>1400</value>  <!-- 65530 -->
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.send_socket_buffer_size</name>
+              <value>65530</value>
+            </element>
+            <!-- ignore sequence bounds (python to cpp)-->
+            <element>
+            	<name>dds.type_consistency.ignore_sequence_bounds</name>
+          	<value>1</value>
+            </element>
+            <element>
+              <!-- Work cross VLANs and cross networks support (defines the number of allowed ip hops) -->
+              <name>dds.transport.UDPv4.builtin.multicast_ttl</name>
+              <value>64</value>
+            </element>
+            <element>
+              <name>QOSVersion</name>
+              <value>3.3.6.10</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <!-- OPTIONAL FOR WORKING WITHOUT UDP MULTICAST (KESHET AMTAI)
+          <transport_builtin>
+              <mask>UDPv4</mask>
+          </transport_builtin>
+            <discovery>
+              <initial_peers> -->
+              <!-- NOTE: Need to add here all ips in DDS network -->
+         <!--  <element>builtin.udpv4://127.0.0.1</element>
+                <element>192.168.101.5</element>
+                <element>192.168.54.5</element>
+              </initial_peers>
+              <multicast_receive_addresses/>
+            </discovery>
+            <property>
+              <value>
+                <element>
+                  <name>dds.transport.UDPv4.builtin.multicast_enabled</name>
+                  <value>0</value>
+                </element>
+              </value>
+            </property>
+      OPTIONAL FOR WORKING WITHOUT UDP MULTICAST  -->
+      </participant_qos>
+   <!--   <publisher_qos>
+        <presentation>
+          <access_scope>TOPIC_PRESENTATION_QOS</access_scope>
+          <ordered_access>true</ordered_access>
+        </presentation>
+      </publisher_qos>
+      <subscriber_qos>
+        <presentation>
+          <access_scope>TOPIC_PRESENTATION_QOS</access_scope>
+          <ordered_access>true</ordered_access>
+        </presentation>
+      </subscriber_qos>  -->
+      <datareader_qos>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>Baseline_Profile</value>
+              <propagate>true</propagate>
+            </element>
+            <element>
+              <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+              <value>4096</value>
+             </element>
+          </value>
+        </property>
+		    <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datareader_qos>
+      <datawriter_qos>
+	    <publish_mode>
+          <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+        </publish_mode>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>Baseline_Profile</value>
+              <propagate>true</propagate>
+            </element>
+            <element>
+              <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+              <value>4096</value>
+             </element>
+          </value>
+        </property>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="CommandPattern" base_name="Elbit_Carmel_Library::Baseline_Profile">
+      <datareader_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+        <durability>
+          <kind>VOLATILE_DURABILITY_QOS</kind> <!-- should be TRANSIENT_LOCAL_DURABILITY_QOS ??-->
+        </durability>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+
+    <!--     <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order>-->
+      </datareader_qos>
+      <datawriter_qos>
+        <durability>
+          <kind>VOLATILE_DURABILITY_QOS</kind> <!-- should be TRANSIENT_LOCAL_DURABILITY_QOS ??-->
+        </durability>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+        <lifespan>
+          <duration>
+            <sec>2</sec>
+            <nanosec>0</nanosec>
+          </duration>
+        </lifespan>
+      <!--  <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order>-->
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="ConfigurationSpecificationPattern"  base_name="Elbit_Carmel_Library::Baseline_Profile">
+      <datareader_qos>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>ConfigurationSpecificationPattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>2</depth>
+        </history>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+      </datareader_qos>
+      <datawriter_qos>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>ConfigurationSpecificationPattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <writer_data_lifecycle>
+          <autodispose_unregistered_instances>true</autodispose_unregistered_instances>
+        </writer_data_lifecycle>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="ContinuousDataPattern"  base_name="Elbit_Carmel_Library::Baseline_Profile">
+      <datareader_qos>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>ContinuousDataPattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <reliability>
+          <kind>BEST_EFFORT_RELIABILITY_QOS</kind>
+        </reliability>
+       <!-- <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order>-->
+      </datareader_qos>
+      <datawriter_qos>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>100</depth>
+        </history>
+        <writer_data_lifecycle>
+          <autodispose_unregistered_instances>true</autodispose_unregistered_instances>
+        </writer_data_lifecycle>
+        <reliability>
+          <kind>BEST_EFFORT_RELIABILITY_QOS</kind>
+        </reliability>
+       <!-- <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order> -->
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>ContinuousDataPattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <!--TBD Per Endpoint Entity-->
+        <!--<deadline/>-->
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="StatePattern"  base_name="Elbit_Carmel_Library::Baseline_Profile">
+      <datareader_qos>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>StatePattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--TBD Per Endpoint Entity-->
+          <!--<depth></depth>-->
+        </history>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+     <!--   <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order>-->
+      </datareader_qos>
+      <datawriter_qos>
+        <writer_data_lifecycle>
+          <autodispose_unregistered_instances>false</autodispose_unregistered_instances>
+        </writer_data_lifecycle>
+        <property>
+          <value>
+            <element>
+              <name>QOSName</name>
+              <value>StatePattern</value>
+              <propagate>true</propagate>
+            </element>
+          </value>
+        </property>
+        <durability>
+          <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+        </durability>
+        <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <!--TBD Per Endpoint Entity-->
+          <!--<depth></depth>-->
+        </history>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+       <!-- <destination_order>
+          <kind>BY_SOURCE_TIMESTAMP_DESTINATIONORDER_QOS</kind>
+        </destination_order> -->
+      </datawriter_qos>
+    </qos_profile>
+
+    <qos_profile name="KeepAlivePattern" base_name="Elbit_Carmel_Library::Baseline_Profile">
+      <participant_qos name="KeepAliveParticipant">
+        <discovery_config>
+          <participant_liveliness_assert_period>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </participant_liveliness_assert_period>
+          <participant_liveliness_lease_duration>
+            <sec>4</sec>
+            <nanosec>0</nanosec>
+          </participant_liveliness_lease_duration>
+          <max_liveliness_loss_detection_period>
+            <sec>1</sec>
+            <nanosec>0</nanosec>
+          </max_liveliness_loss_detection_period>
+        </discovery_config>
+      </participant_qos>
+    </qos_profile>
+
+
+    <qos_profile name="Default" is_default_qos="true" is_default_participant_factory_profile="true">
+      <participant_factory_qos base_name="Baseline_Profile"/>
+      <participant_qos name="NavigationParticipant" base_name="Baseline_Profile"/>
+      <publisher_qos  base_name="Baseline_Profile"/>
+      <subscriber_qos  base_name="Baseline_Profile"/>
+
+      <!-- ******************************************** Navigation Topics, Navigation_Reference_PSM.idl ******************************************** -->
+      <!-- C_Position_Uncertainty-->
+	  <datawriter_qos name="Position_Uncertainty_DW" base_name="ContinuousDataPattern" topic_filter="*Position_Uncertainty*">
+        <publication_name>
+          <name>Position_Uncertainty_DW</name>
+        </publication_name>
+		  <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos name="Position_Uncertainty_DR" base_name="ContinuousDataPattern" topic_filter="*Position_Uncertainty*">
+        <subscription_name>
+          <name>Position_Uncertainty_DR</name>
+        </subscription_name>
+		  <history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datareader_qos>
+	    <!--C_Position-->
+      <datawriter_qos name="Position_DW" base_name="ContinuousDataPattern" topic_filter="*C_Position">
+        <publication_name>
+          <name>Position_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Position_DR" base_name="ContinuousDataPattern" topic_filter="*C_Position">
+        <subscription_name>
+          <name>Position_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!--C_Heading-->
+      <datawriter_qos name="Heading_DW" base_name="ContinuousDataPattern" topic_filter="*Heading*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Heading_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Heading_DR" base_name="ContinuousDataPattern" topic_filter="*Heading*">
+        <subscription_name>
+          <name>Heading_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!-- C_Attitude --> 
+      <datawriter_qos name="Attitude_DW" base_name="ContinuousDataPattern" topic_filter="*Attitude">
+        <!--Inherit from ContinuousDataPattern QOS Profile and overrude the Deadline QOS-->
+        <deadline>
+          <period>
+            <sec>1</sec>
+          </period>
+        </deadline>
+        <publication_name>
+          <name>Attitude_DW</name>
+        </publication_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos name="Attitude_DR" base_name="ContinuousDataPattern" topic_filter="*Attitude">
+        <subscription_name>
+          <name>Attitude_DR</name>
+        </subscription_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datareader_qos>
+
+      <!--C_Linear_Motion-->
+      <datawriter_qos name="Linear_Motion_DW" base_name="ContinuousDataPattern" topic_filter="*Linear_Motion*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Linear_Motion_DW</name>
+        </publication_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos name="Linear_Motion_DR" base_name="ContinuousDataPattern" topic_filter="*Linear_Motion*">
+        <subscription_name>
+          <name>Linear_Motion_DR</name>
+        </subscription_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datareader_qos>
+
+      <!--C_Navigation_Frame_Velocity-->
+      <datawriter_qos name="Navigation_Frame_Velocity_DW" base_name="ContinuousDataPattern" topic_filter="*Navigation_Frame_Velocity*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Navigation_Frame_Velocity_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Navigation_Frame_Velocity_DR" base_name="ContinuousDataPattern" topic_filter="*Navigation_Frame_Velocity*">
+        <subscription_name>
+          <name>Navigation_Frame_Velocity_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!--C_Angular_Motion-->
+      <datawriter_qos name="Angular_Motion_DW" base_name="ContinuousDataPattern" topic_filter="*Angular_Motion*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Angular_Motion_DW</name>
+        </publication_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos name="Angular_Motion_DR" base_name="ContinuousDataPattern" topic_filter="*Angular_Motion*">
+        <subscription_name>
+          <name>Angular_Motion_DR</name>
+        </subscription_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>10</depth>
+        </history>
+      </datareader_qos>
+
+      <!--C_GPS_Receiver-->
+      <datawriter_qos name="GPS_Receiver_DW" base_name="ContinuousDataPattern" topic_filter="*GPS_Receiver*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>GPS_Receiver_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="GPS_Receiver_DR" base_name="ContinuousDataPattern" topic_filter="*GPS_Receiver*">
+        <subscription_name>
+          <name>GPS_Receiver_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!--C_Navigation_Resource , C_Navigation_Resource_Output_Specification, C_Navigation_Resource_Attitude_Specification ,C_Navigation_Resource_Setup_Specification, C_Navigation_Resource_Specification-->
+      <datawriter_qos name="Navigation_Resource_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Navigation_Resource*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Navigation_Resource_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Navigation_Resource_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Navigation_Resource*">
+        <subscription_name>
+          <name>Navigation_Resource_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!-- C_Coordinate_Datum_Specification, C_Coordinate_System_Specification -->
+      
+      <datawriter_qos name="Coordinate_Specification_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Coordinate*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Coordinate_Specification_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Coordinate_Specification_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Coordinate*">
+        <subscription_name>
+          <name>Coordinate_Specification_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!-- C_Navigation_Sensor -->
+      <datawriter_qos name="Navigation_Sensor_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Navigation_Sensor*">
+        <!--Optional - This name will be displayed on RTI's Admin console - For readability only-->
+        <publication_name>
+          <name>Navigation_Sensor_DW</name>
+        </publication_name>
+      </datawriter_qos>      
+      <datareader_qos name="Navigation_Sensor_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Navigation_Sensor*">
+        <subscription_name>
+          <name>Navigation_Sensor_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Odometer_resetDistanceTravelled -->
+      <datawriter_qos name="Odometer_reset_Cmd_DW" base_name="CommandPattern" topic_filter="*Odometer_reset*">
+        <publication_name>
+          <name>Odometer_reset_Cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Odometer_reset_Cmd_DR" base_name="CommandPattern" topic_filter="*Odometer_reset*">
+        <subscription_name>
+          <name>Odometer_reset_Cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+
+
+      <!-- ******************************************** Video Extension Topics, Video_Extension.idl ******************************************** -->
+      <!--C_VideoStream_Telemetry_EX-->
+      <datawriter_qos name="VideoTelemetry_DW" base_name="ContinuousDataPattern" topic_filter="*VideoStream_Telemetry*">
+        <publication_name>
+          <name>VideoTelemetry_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTelemetry_DR" base_name="ContinuousDataPattern" topic_filter="*VideoStream_Telemetry*">
+        <subscription_name>
+          <name>VideoTelemetry_DR</name>
+        </subscription_name>
+      </datareader_qos>
+	  <!--C_VideoStream_Description_EX-->
+      <datawriter_qos name="VideoDescription_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*VideoStream_Description*">
+        <publication_name>
+          <name>VideoDescription_DW</name>
+        </publication_name>
+        <!--<property>
+            <value>
+                <element>
+                    <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datawriter_qos>
+      <datareader_qos name="VideoDescription_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*VideoStream_Description*">
+        <subscription_name>
+          <name>VideoDescription_DR</name>
+        </subscription_name>
+        <!--<property>
+            <value>
+                <element>
+                    <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datareader_qos>
+      <!--C_Actual_Video_Source_Reset_Ex -->
+      <datawriter_qos name="Cmd_VideoSourceReset_DW" base_name="CommandPattern" topic_filter="*Video_Source_Reset*">
+        <publication_name>
+          <name>Cmd_VideoSourceReset_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_VideoSourceReset_DR" base_name="CommandPattern" topic_filter="*Video_Source_Reset*">
+        <subscription_name>
+          <name>Cmd_VideoSourceReset_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- ******************************************** Video Topics, Video_PSM.idl ******************************************** -->
+      <!--C_Video_Source_Specification,C_Actual_Video_Source,C_Video_Source_Image_Support,C_Video_Source_Gain_Support,C_Video_Source_Sensor_Support,C_Video_Source_Focus_Support
+      Specification pattern,C_Video_Source_FOV_Support-->
+      <datawriter_qos name="Video_Source_Specification_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Video_Source*">
+        <publication_name>
+          <name>VideoSource_Specs_DW</name>
+        </publication_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+		<!--<property>
+			<value>
+				<element>
+					<name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+					<value>4096</value>
+				</element>
+			</value>
+		</property>-->
+      </datawriter_qos>
+      <datareader_qos name="Video_Source_Specification_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Video_Source*">
+        <subscription_name>
+          <name>VideoSource_Specs_DR</name>
+        </subscription_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+		<!--<property>
+			<value>
+				<element>
+					<name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+					<value>4096</value>
+				</element>
+			</value>
+		</property>-->
+      </datareader_qos>
+      <!--C_Video_Stream_Specification,C_Actual_Video_Stream-->
+      <datawriter_qos name="Video_Stream_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Video_Stream*">
+        <publication_name>
+          <name>Video_Stream_Specs_DW</name>
+        </publication_name>
+		<resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+        <!--<property>
+            <value>
+                <element>
+                    <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datawriter_qos>
+      <datareader_qos name="Video_Stream_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Video_Stream*">
+        <subscription_name>
+          <name>Video_Stream_Specs_DR</name>
+        </subscription_name>
+		<resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+        <!--<property>
+            <value>
+                <element>
+                    <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datareader_qos>
+      <!--C_Compression-->
+      <datawriter_qos name="Video_Compression_DW" base_name="StatePattern" topic_filter="*Compression*">
+        <publication_name>
+          <name>Video_Compression_DW</name>
+        </publication_name>
+		<!--<property>
+            <value>
+                <element>
+                    <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datawriter_qos>
+      <datareader_qos name="Video_Compression_DR" base_name="StatePattern" topic_filter="*Compression*">
+        <subscription_name>
+          <name>Compression_DR</name>
+        </subscription_name>
+		<!--<property>
+            <value>
+                <element>
+                    <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                    <value>4096</value>
+                </element>
+            </value>
+        </property>-->
+      </datareader_qos>
+      <!--C_Format-->
+      <datawriter_qos name="Video_Format_DW" base_name="StatePattern" topic_filter="*Format*">
+        <publication_name>
+          <name>Video_Format_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_Format_DR" base_name="StatePattern" topic_filter="*Format*">
+        <subscription_name>
+          <name>Video_Format_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Encoding-->
+      <datawriter_qos name="Video_Encoding_DW" base_name="StatePattern" topic_filter="*Encoding*">
+        <publication_name>
+          <name>Video_Encoding_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_Encoding_DR" base_name="StatePattern" topic_filter="*Encoding*">
+        <subscription_name>
+          <name>Video_Encoding_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Source_Orientation-->
+      <datawriter_qos name="Video_Orientation_DW" base_name="StatePattern" topic_filter="*Source_Orientation*">
+        <publication_name>
+          <name>Video_Orientation_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_Orientation_DR" base_name="StatePattern" topic_filter="*Source_Orientation*">
+        <subscription_name>
+          <name>Video_Orientation_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Resolution-->
+      <datawriter_qos name="Video_Resolution_DW" base_name="StatePattern" topic_filter="*Resolution*">
+        <publication_name>
+          <name>Video_Resolution_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_Resolution_DR" base_name="StatePattern" topic_filter="*Resolution*">
+        <subscription_name>
+          <name>Video_Resolution_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Source_Zoom-->
+      <datawriter_qos name="Video_Zoom_DW" base_name="StatePattern" topic_filter="*Source_Zoom*">
+        <publication_name>
+          <name>Video_Zoom_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_Zoom_DR" base_name="StatePattern" topic_filter="*Source_Zoom*">
+        <subscription_name>
+          <name>Video_Zoom_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Stream_Zoom_nudgeZoom-->
+      <datawriter_qos name="Cmd_Zoom_DW" base_name="CommandPattern" topic_filter="*nudgeZoom*">
+        <publication_name>
+          <name>Cmd_Zoom_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_Zoom_DR" base_name="CommandPattern" topic_filter="*nudgeZoom*">
+        <subscription_name>
+          <name>Cmd_Zoom_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Focus_setAutoOff,C_Focus_setAutoOn,C_Focus_nudgeFocus-->
+      <datawriter_qos name="Cmd_Focus_DW" base_name="CommandPattern" topic_filter="*C_Focus*">
+        <publication_name>
+          <name>Cmds_Focus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_Focus_DR" base_name="CommandPattern" topic_filter="*C_Focus*">
+        <subscription_name>
+          <name>Cmds_Focus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Gain_setAutoOff,C_Gain_setAutoOn,C_Gain_nudgeGain-->
+      <datawriter_qos name="Cmd_Gain_DW" base_name="CommandPattern" topic_filter="*C_Gain*">
+        <publication_name>
+          <name>Cmds_Gain_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_Gain_DR" base_name="CommandPattern" topic_filter="*C_Gain*">
+        <subscription_name>
+          <name>Cmds_Gain_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Exposure_setOperationMode,C_Exposure_operateShutterManually,C_Exposure_operateShutter -->
+      <datawriter_qos name="Cmd_Exposure_DW" base_name="CommandPattern" topic_filter="*C_Exposure*">
+        <publication_name>
+          <name>Cmds_Exposure_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_Exposure_DR" base_name="CommandPattern" topic_filter="*C_Exposure*">
+        <subscription_name>
+          <name>Cmds_Exposure_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Actual_Video_Stream_setFrameRate -->
+      <datawriter_qos name="Cmd_Framerate_DW" base_name="CommandPattern" topic_filter="*setFrameRate*">
+        <publication_name>
+          <name>Cmd_Framerate_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_Framerate_DR" base_name="CommandPattern" topic_filter="*setFrameRate*">
+        <subscription_name>
+          <name>Cmd_Framerate_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Resolution_setResolution -->
+      <datawriter_qos name="Cmd_setResolution_DW" base_name="CommandPattern" topic_filter="*setResolution*">
+        <publication_name>
+          <name>Cmd_setResolution_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_setResolution_DR" base_name="CommandPattern" topic_filter="*setResolution*">
+        <subscription_name>
+          <name>Cmd_setResolution_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Actual_Video_Stream_cancelVideoStream -->
+      <datawriter_qos name="Cmd_cancelVideoStream_DW" base_name="CommandPattern" topic_filter="*cancelVideoStream*">
+        <publication_name>
+          <name>Cmd_cancelVideoStream_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_cancelVideoStream_DR" base_name="CommandPattern" topic_filter="*cancelVideoStream*">
+        <subscription_name>
+          <name>Cmd_cancelVideoStream_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Actual_Video_Stream_requestVideoStream -->
+      <datawriter_qos name="Cmd_requestVideoStream_DW" base_name="CommandPattern" topic_filter="*requestVideoStream*">
+        <publication_name>
+          <name>Cmd_requestVideoStream_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Cmd_requestVideoStream_DR" base_name="CommandPattern" topic_filter="*requestVideoStream*">
+        <subscription_name>
+          <name>Cmd_requestVideoStream_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- ******************************************** Autonomous driving Topics, AutonomousDriveControls_Extension.idl ******************************************** -->
+      <!--C_Driving_KitSpecification_Ex,C_DrivingKitRTMESpecification_Ex,C_DrivingKitMotionPlanningSpecification_Ex , All Other unassigned specification messages-->
+      <datawriter_qos name="Specification_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Driving*Kit*Specification*">
+        <publication_name>
+          <name>Specification_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Specification_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Driving*Kit*Specification*">
+        <subscription_name>
+          <name>Specification_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_RoboticKitStatus_Ex -->
+      <datawriter_qos name="RoboticKitStatus_DW" base_name="StatePattern" topic_filter="*RoboticKitStatus*">
+        <publication_name>
+          <name>RoboticKitStatus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="RoboticKitStatus_DR" base_name="StatePattern" topic_filter="*RoboticKitStatus*">
+        <subscription_name>
+          <name>RoboticKitStatus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKit_TaskCommand_Ex -->
+      <datawriter_qos name="DrivingKit_TaskCommand_DW" base_name="CommandPattern" topic_filter="*DrivingKit_TaskCommand*">
+        <publication_name>
+          <name>DrivingKit_TaskCommand_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="DrivingKit_TaskCommand_DR" base_name="CommandPattern" topic_filter="*DrivingKit_TaskCommand*">
+        <subscription_name>
+          <name>DrivingKit_TaskCommand_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKit_TaskStatus_Ex -->
+      <datawriter_qos name="DrivingKit_TaskStatus_DW" base_name="StatePattern" topic_filter="*DrivingKit_TaskStatus*">
+        <publication_name>
+          <name>DrivingKit_TaskStatus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="DrivingKit_TaskStatus_DR" base_name="StatePattern" topic_filter="*DrivingKit_TaskStatus*">
+        <subscription_name>
+          <name>DrivingKit_TaskStatus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKit_TeleoOperatedCommand_Ex -->
+      <datawriter_qos name="TeleoOperatedCommand_DW" base_name="CommandPattern" topic_filter="*TeleoOperatedCommand*">
+        <publication_name>
+          <name>TeleoOperatedCommand_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="TeleoOperatedCommand_DR" base_name="CommandPattern" topic_filter="*TeleoOperatedCommand*">
+        <subscription_name>
+          <name>TeleoOperatedCommand_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitRTMEStatus_Ex -->
+      <datawriter_qos name="RTMEStatus_DW" base_name="StatePattern" topic_filter="*RTMEStatus*">
+        <publication_name>
+          <name>RTMEStatus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="RTMEStatus_DR" base_name="StatePattern" topic_filter="*RTMEStatus*">
+        <subscription_name>
+          <name>RTMEStatus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_ME_obstacle_reached_Ex -->
+      <datawriter_qos name="ME_obstacle_reached_DW" base_name="StatePattern" topic_filter="*ME_obstacle_reached*">
+        <publication_name>
+          <name>ME_obstacle_reached_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="ME_obstacle_reached_DR" base_name="StatePattern" topic_filter="*ME_obstacle_reached*">
+        <subscription_name>
+          <name>ME_obstacle_reached_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitMECommand_Ex -->
+      <datawriter_qos name="DrivingKitMECommand_DW" base_name="CommandPattern" topic_filter="*DrivingKitMECommand*">
+        <publication_name>
+          <name>DrivingKitMECommand_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="DrivingKitMECommand_DR" base_name="CommandPattern" topic_filter="*DrivingKitMECommand*">
+        <subscription_name>
+          <name>DrivingKitMECommand_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitMotionPlanningStatus_Ex -->
+      <datawriter_qos name="MotionPlanningStatus_DW" base_name="StatePattern" topic_filter="*MotionPlanningStatus*">
+        <publication_name>
+          <name>MotionPlanningStatus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="MotionPlanningStatus_DR" base_name="StatePattern" topic_filter="*MotionPlanningStatus*">
+        <subscription_name>
+          <name>MotionPlanningStatus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitMotionPlanningCommand_Ex -->
+      <datawriter_qos name="MotionPlanningCommand_DW" base_name="StatePattern" topic_filter="*MotionPlanningCommand*">
+        <publication_name>
+          <name>MotionPlanningCommand_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="MotionPlanningCommand_DR" base_name="StatePattern" topic_filter="*MotionPlanningCommand*">
+        <subscription_name>
+          <name>MotionPlanningCommand_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitMotionPlanningParameters_Ex -->
+      <datawriter_qos name="MotionPlanningParameters_DW" base_name="StatePattern" topic_filter="*MotionPlanningParameters*">
+        <publication_name>
+          <name>MotionPlanningParameters_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="MotionPlanningParameters_DR" base_name="StatePattern" topic_filter="*MotionPlanningParameters*">
+        <subscription_name>
+          <name>MotionPlanningParameters_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_DrivingKitSetAutoSpeedLimitCommand_Ex -->
+      <datawriter_qos name="SetSpeedLimitCommand_DW" base_name="CommandPattern" topic_filter="*SetAutoSpeedLimitCommand*">
+        <publication_name>
+          <name>SetSpeedLimitCommand_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="SetSpeedLimitCommand_DR" base_name="CommandPattern" topic_filter="*SetAutoSpeedLimitCommand*">
+        <subscription_name>
+          <name>SetSpeedLimitCommand_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_GlobalRoutePlanned_Ex,C_RealTime_RoutePlanned_Ex,C_RealTime_RouteSmoothed_Ex -->
+      <datawriter_qos name="Route_DW" base_name="StatePattern" topic_filter="*Route*">
+        <publication_name>
+          <name>Route_DW</name>
+        </publication_name>
+		<resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+		<!--<property>
+        <value>
+            <element>
+                <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                <value>4096</value>
+            </element>
+        </value>
+		</property>-->
+      </datawriter_qos>
+      <datareader_qos name="Route_DR" base_name="StatePattern" topic_filter="*Route*">
+        <subscription_name>
+          <name>Route_DR</name>
+        </subscription_name>
+		<resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+		<!--<property>
+        <value>
+            <element>
+                <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                <value>4096</value>
+            </element>
+        </value>
+		</property>-->
+      </datareader_qos>
+      <!--C_RoboticEstopStatus_Ex-->
+      <datawriter_qos name="EstopStatus_DW" base_name="StatePattern" topic_filter="*EstopStatus*">
+        <publication_name>
+          <name>EstopStatus_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="EstopStatus_DR" base_name="StatePattern" topic_filter="*EstopStatus*">
+        <subscription_name>
+          <name>EstopStatus_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- ******************************************** Vehicle control  Topics, VehicleControls_Extension_PSM.idl ******************************************** -->
+      <!--C_Vehicle_Systems_Specification_Ex-->
+      <datawriter_qos name="VehicleSpecification_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Vehicle_Systems_Specification*">
+        <publication_name>
+          <name>VehicleSpecification_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VehicleSpecification_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Vehicle_Systems_Specification*">
+        <subscription_name>
+          <name>VehicleSpecification_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Engine_state_Ex,C_VehicleSystems_state_Ex,C_BrakingSystem_state_Ex,C_VehiclePeripherals_state_Ex-->
+      <datawriter_qos name="VehicleState_DW" base_name="StatePattern" topic_filter="*_state_*">
+        <publication_name>
+          <name>VehicleState_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VehicleState_DR" base_name="StatePattern" topic_filter="*_state_*">
+        <subscription_name>
+          <name>VehicleState_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+      <!--Vehicle Commands -->
+      <!-- C_Vehicle_System_commandBrake_Ex,C_Vehicle_System_commandSteerCommand_Ex,C_Vehicle_System_commandGasCommand_Ex,C_Vehicle_System_commandPeripherals_Ex,C_Vehicle_System_commandHorn_Ex,C_Vehicle_System_commandGear_Ex
+      C_Vehicle_System_commandRamp_Ex, C_Vehicle_System_commandEStop_Ex,C_Vehicle_System_commandPivot_Ex,C_Vehicle_System_commandDifferentialLock_Ex,C_Vehicle_System_commandCamerasWipers_Ex,C_Vehicle_System_commandClearingTool_Ex-->
+      <datawriter_qos name="VehicleSystemsCmd_DW" base_name="CommandPattern" topic_filter="*Vehicle_System_command*">
+        <publication_name>
+          <name>VehicleSystemsCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VehicleSystemsCmd_DR" base_name="CommandPattern" topic_filter="*Vehicle_System_command*">
+        <subscription_name>
+          <name>VehicleSystemsCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Engine_Unit_startEngine -->
+      <datawriter_qos name="StartEngineCmd_DW" base_name="CommandPattern" topic_filter="*startEngine*">
+        <publication_name>
+          <name>StartEngineCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="StartEngineCmd_DR" base_name="CommandPattern" topic_filter="*startEngine*">
+        <subscription_name>
+          <name>SStartEngineCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Engine_Unit_stopEngine -->
+      <datawriter_qos name="StopEngineCmd_DW" base_name="CommandPattern" topic_filter="*stopEngine*">
+        <publication_name>
+          <name>StopEngineCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="StopEngineCmd_DR" base_name="CommandPattern" topic_filter="*stopEngine*">
+        <subscription_name>
+          <name>StopEngineCmd_DW</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- ******************************************** Tactical Sensor and Detections, Tactical_Sensor_PSM.idl,Tactical_Sensor_Extension_PSM.idl ******************************************** -->
+      <!--C_Tactical_Sensor_Specification,C_Tactical_Sensor_Specification_Ex -->
+            <datawriter_qos name="Tactical_Sensor_Spec_DW" base_name="ConfigurationSpecificationPattern"
+                            topic_filter="*Tactical_Sensor_Spec*">
+                <publication_name>
+                    <name>Tactical_Sensor_Spec_DW</name>
+                </publication_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datawriter_qos>
+            <datareader_qos name="Tactical_Sensor_Spec_DR" base_name="ConfigurationSpecificationPattern"
+                            topic_filter="*Tactical_Sensor_Spec*">
+                <subscription_name>
+                    <name>Tactical_Sensor_Spec_DR</name>
+                </subscription_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datareader_qos>		
+	    <!--C_Tactical_Sensor -->
+	    <datawriter_qos name="Tactical_Sensor_DW" base_name="CommandPattern"
+                            topic_filter="*C_Tactical_Sensor*">
+                <publication_name>
+                    <name>Tactical_Sensor_DW</name>
+                </publication_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datawriter_qos>
+            <datareader_qos name="Tactical_Sensor_DR" base_name="CommandPattern"
+                            topic_filter="*C_Tactical_Sensor*">
+                <subscription_name>
+                    <name>Tactical_Sensor_DR</name>
+                </subscription_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datareader_qos>
+		    <!--C_Detection,C_Detection_Data_Ex,C_Detection_Merged_Ex,C_Detection_Splitted_Ex,C_Detection_Location,C_Detection_Location_Ex-->
+            <datareader_qos name="Detection_DR" base_name="StatePattern" topic_filter="*C_Detection*">
+                <subscription_name>
+                    <name>Detection_DR</name>
+                </subscription_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_reader.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datareader_qos>
+            <datawriter_qos name="Detection_DW" base_name="StatePattern" topic_filter="*C_Detection*">
+                <publication_name>
+                    <name>Detection_DW</name>
+                </publication_name>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+                <property>
+                    <value>
+                        <!--<element>
+                            <name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+                            <value>4096</value>
+                        </element>-->
+                        <!-- Java will use a buffer of this length to serialize all frames with a
+                                 size smaller than or equal than this length. When a sample is published,
+                                Java will reallocate the serialization buffer to match the serialized
+                                size of the new sample if it is greater to this length -->
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.min_size
+                            </name>
+                            <value>4096</value>
+                        </element>
+                        <element>
+                            <name>
+                                dds.data_writer.history.memory_manager.java_stream.trim_to_size
+                            </name>
+                            <value>1</value>
+                        </element>
+                    </value>
+                </property>
+            </datawriter_qos>
+
+      <!-- ******************************************** Specification Topics Vehicle_Configuration_PSM.idl ******************************************** -->
+      <!--C_Resource_Specification -->
+      <datawriter_qos name="Resource_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Resource_Specification*">
+        <publication_name>
+          <name>Resource_Spec_DW</name>
+        </publication_name>
+		    <!--<property>
+				<value>
+					<element>
+						<name>dds.data_writer.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+						<value>4096</value>
+					</element>
+				</value>
+			</property>-->
+      </datawriter_qos>
+      <datareader_qos name="Resource_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Resource_Specification*">
+        <subscription_name>
+          <name>Resource_Spec_DR</name>
+        </subscription_name>
+			<!--<property>
+				<value>
+					<element>
+						<name>dds.data_reader.history.memory_manager.fast_pool.pool_buffer_max_size</name>
+						<value>4096</value>
+					</element>
+				</value>
+			</property>-->
+      </datareader_qos>
+
+      <!-- ******************************************** Mounted Equipment: Mount_Extension_PSM.idl,Mount_PSM.idl ******************************************** -->
+      <!--C_Mount_Specification_Ex -->
+      <datawriter_qos name="Mount_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Mount_Specification*">
+        <publication_name>
+          <name>Mount_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Mount_Specification*">
+        <subscription_name>
+          <name>Mount_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Actual_Mount_Status_Ex -->
+      <datawriter_qos name="Mount_Status_DW" base_name="StatePattern" topic_filter="*Mount_Status*">
+        <publication_name>
+          <name>Mount_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_Status_DR" base_name="StatePattern" topic_filter="*Mount_Status*">
+        <subscription_name>
+          <name>Mount_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Actual_Mount_Task_Status_Ex -->
+      <datawriter_qos name="Mount_Task_Status_DW" base_name="StatePattern" topic_filter="*Mount_Task_Status*">
+        <publication_name>
+          <name>Mount_Task_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_Task_Status_DR" base_name="StatePattern" topic_filter="*Mount_Task_Status*">
+        <subscription_name>
+          <name>Mount_Task_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_MountManager_Specification_Ex -->
+      <datawriter_qos name="MountManager_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*MountManager_Specification*">
+        <publication_name>
+          <name>MountManager_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="MountManager_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*MountManager_Specification*">
+        <subscription_name>
+          <name>MountManager_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_MountManager_Status_Ex -->
+      <datawriter_qos name="MountManager_Status_DW" base_name="StatePattern" topic_filter="*MountManager_Status*">
+        <publication_name>
+          <name>MountManager_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="MountManager_Status_DR" base_name="StatePattern" topic_filter="*MountManager_Status*">
+        <subscription_name>
+          <name>MountManager_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_LRF_MeasuredRange_Ex -->
+      <datawriter_qos name="LRF_MeasuredRange_DW" base_name="CommandPattern" topic_filter="*LRF_MeasuredRange*">
+        <publication_name>
+          <name>LRF_MeasuredRange_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="LRF_MeasuredRange_DR" base_name="CommandPattern" topic_filter="*LRF_MeasuredRange*">
+        <subscription_name>
+          <name>LRF_MeasuredRange_DR</name>
+        </subscription_name>
+      </datareader_qos>      
+      <!--C_Mounted_Equipment -->
+      <datawriter_qos name="Mounted_Equipment_DW" base_name="StatePattern" topic_filter="*Mounted_Equipment*">
+        <publication_name>
+          <name>Mounted_Equipment_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mounted_Equipment_DR" base_name="StatePattern" topic_filter="*Mounted_Equipment*">
+        <subscription_name>
+          <name>Mounted_Equipment_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Mount_TeleoOperatedCmd_Ex -->
+      <datawriter_qos name="Mount_tele_cmd_DW" base_name="CommandPattern" topic_filter="*Mount_TeleoOperatedCmd*">
+        <publication_name>
+          <name>Mount_tele_cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_tele_cmd_DR" base_name="CommandPattern" topic_filter="*Mount_TeleoOperatedCmd*">
+        <subscription_name>
+          <name>Mount_tele_cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_ManualControlCmd_Ex -->
+      <datawriter_qos name="Mount_ManualControlCmdt_DW" base_name="CommandPattern" topic_filter="*Mount_ManualControlCmd*">
+        <publication_name>
+          <name>Mount_ManualControlCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_ManualControlCmd_DR" base_name="CommandPattern" topic_filter="*Mount_ManualControlCmd*">
+        <subscription_name>
+          <name>Mount_ManualControlCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_HoldPosition_TaskCmd_Ex,C_Mount_Scanning_TaskCmd_Ex -->
+      <datawriter_qos name="Mount_Task_cmd_DW" base_name="CommandPattern" topic_filter="*TaskCmd_Ex*">
+        <publication_name>
+          <name>Mount_Task_cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_Task_cmd_DR" base_name="CommandPattern" topic_filter="*TaskCmd_Ex*">
+        <subscription_name>
+          <name>Mount_Task_cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_EnslvModeCmd_Ex -->
+      <datawriter_qos name="Mount_EnslvModeCmd_DW" base_name="CommandPattern" topic_filter="*EnslvModeCmd*">
+        <publication_name>
+          <name>Mount_EnslvModeCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_EnslvModeCmd_DR" base_name="CommandPattern" topic_filter="*EnslvModeCmd*">
+        <subscription_name>
+          <name>Mount_EnslvModeCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_StabModeCmd_Ex -->
+      <datawriter_qos name="Mount_StabModeCmd_DW" base_name="CommandPattern" topic_filter="*Mount_StabModeCmd*">
+        <publication_name>
+          <name>Mount_StabModeCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_StabModeCmd_DR" base_name="CommandPattern" topic_filter="*Mount_StabModeCmd*">
+        <subscription_name>
+          <name>Mount_StabModeCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Rotational_Mount_setPosition -->
+      <datawriter_qos name="Rotational_Mount_setPosition_DW" base_name="CommandPattern" topic_filter="*Rotational_Mount_setPosition*">
+        <publication_name>
+          <name>Rotational_Mount_setPosition_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Rotational_Mount_setPosition_DR" base_name="CommandPattern" topic_filter="*Rotational_Mount_setPosition_Ex*">
+        <subscription_name>
+          <name>Rotational_Mount_setPosition_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_setPosition_Ex -->
+      <datawriter_qos name="Mount_setPosition_DW" base_name="CommandPattern" topic_filter="*Mount_setPosition_Ex*">
+        <publication_name>
+          <name>Mount_setPosition_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_setPosition_DR" base_name="CommandPattern" topic_filter="*Mount_setPosition_Ex*">
+        <subscription_name>
+          <name>Mount_setPosition_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_Scanning_ActivityCmd_Ex -->
+      <datawriter_qos name="Mount_Scanning_DW" base_name="CommandPattern" topic_filter="*Mount_Scanning*">
+        <publication_name>
+          <name>Mount_Scanning_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Mount_Scanning_DR" base_name="CommandPattern" topic_filter="*Mount_Scanning*">
+        <subscription_name>
+          <name>Mount_Scanning_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- C_Mount_Execute_TaskCmd_Ex -->
+      <datawriter_qos name="Execute_TaskCmd_DW" base_name="CommandPattern" topic_filter="*Execute_TaskCmd*">
+        <publication_name>
+          <name>Execute_TaskCmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Execute_TaskCmd_DR" base_name="CommandPattern" topic_filter="*Execute_TaskCmd*">
+        <subscription_name>
+          <name>Execute_TaskCmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!-- ******************************************** Tactical Effector: Tactical_Effector_PSM.idl ******************************************** -->
+      <!--C_Tactical_Effector_Specification -->
+      <datawriter_qos name="Effector_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Tactical_Effector_Specification*">
+        <publication_name>
+          <name>Effector_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Effector_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Tactical_Effector_Specification*">
+        <subscription_name>
+          <name>Effector_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Fire_Event-->
+      <datawriter_qos name="Fire_Event_DW" base_name="ContinuousDataPattern" topic_filter="*Fire_Event*">
+        <publication_name>
+          <name>Fire_Event_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Fire_Event_DR" base_name="ContinuousDataPattern" topic_filter="*Fire_Event*">
+        <subscription_name>
+          <name>Fire_Event_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Automatic_Weapon_requestFire-->
+      <datawriter_qos name="Fire_Request_DW" base_name="CommandPattern" topic_filter="*Weapon_requestFire*">
+        <publication_name>
+          <name>Fire_Request_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Fire_Request_DR" base_name="CommandPattern" topic_filter="*Weapon_requestFire*">
+        <subscription_name>
+          <name>Fire_Request_DR</name>
+        </subscription_name>
+      </datareader_qos>
+	  
+      <!-- ******************************************** Laser Range Finder: Laser_Range_Finder_PSM.idl ******************************************** -->
+      <!--C_Laser_Range_Finder_Specification -->
+      <datawriter_qos name="Laser_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*Laser_Range_Finder_Specification*">
+        <publication_name>
+          <name>Laser_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Laser_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*Laser_Range_Finder_Specification*">
+        <subscription_name>
+          <name>Laser_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Laser_Range_Finder_singleFireLaser-->
+      <datawriter_qos name="Single_Fire_Laser_DW" base_name="CommandPattern" topic_filter="*Laser_Range_Finder_singleFireLaser*">
+        <publication_name>
+          <name>Single_Fire_Laser_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Single_Fire_Laser_DR" base_name="CommandPattern" topic_filter="*Laser_Range_Finder_singleFireLaser*">
+        <subscription_name>
+          <name>Single_Fire_Laser_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+    <!-- ******************************************** Data Binder Topics : P_DataBinder_PSM.idl ******************************************** -->
+    <!--C_Map_Object_Report -->
+      <datawriter_qos name="Map_Object_Report_DW" base_name="StatePattern" topic_filter="*C_Map_Object_Report*">
+        <publication_name>
+          <name>Map_Object_Report_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Map_Object_Report_DR" base_name="StatePattern" topic_filter="*C_Map_Object_Report*">
+        <subscription_name>
+          <name>Map_Object_Report_DR</name>
+        </subscription_name>
+      </datareader_qos>
+     <!--C_Polar_Map_Object_Report -->
+      <datawriter_qos name="Polar_Map_Object_Report_DW" base_name="StatePattern" topic_filter="*C_Polar_Map_Object_Report*">
+        <publication_name>
+          <name>Polar_Map_Object_Report_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Polar_Map_Object_Report_DR" base_name="StatePattern" topic_filter="*C_Polar_Map_Object_Report*">
+        <subscription_name>
+          <name>Polar_Map_Object_Report_DR</name>
+        </subscription_name>
+      </datareader_qos>    
+      
+     <!-- ******************************************** Take control Topics: Arbitration_PSM.idl ******************************************** -->
+      <!--C_Actual_Resource -->
+      <datawriter_qos name="Actual_Resource_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Actual_Resource*">
+        <publication_name>
+          <name>Actual_Resource_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Actual_Resource_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Actual_Resource*">
+        <subscription_name>
+          <name>Actual_Resource_DR</name>
+        </subscription_name>
+      </datareader_qos>         
+      <!--C_Controllable_Resource -->
+      <datawriter_qos name="Controllable_Resource_DW" base_name="StatePattern" topic_filter="*C_Controllable_Resource*">
+        <publication_name>
+          <name>Controllable_Resource_DW</name>
+        </publication_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+      </datawriter_qos>
+      <datareader_qos name="Controllable_Resource_DR" base_name="StatePattern" topic_filter="*C_Controllable_Resource*">
+        <subscription_name>
+          <name>Controllable_Resource_DR</name>
+        </subscription_name>
+		<history>
+          <kind>KEEP_LAST_HISTORY_QOS</kind>
+          <depth>3</depth>
+        </history>
+      </datareader_qos> 
+      <!--C_Arbitration_Service_requestExclusiveAccess -->
+      <datawriter_qos name="requestExclusiveAccess_DW" base_name="CommandPattern" topic_filter="*Arbitration_Service_requestExclusiveAccess*">
+        <publication_name>
+          <name>requestExclusiveAccesse_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="requestExclusiveAccess_DR" base_name="CommandPattern" topic_filter="*Arbitration_Service_requestExclusiveAccess*">
+        <subscription_name>
+          <name>requestExclusiveAccess_DR</name>
+        </subscription_name>
+      </datareader_qos> 
+      <!--C_Arbitration_Service_releaseExclusiveAccess -->
+      <datawriter_qos name="releaseExclusiveAccess_DW" base_name="CommandPattern" topic_filter="*Arbitration_Service_releaseExclusiveAccess*">
+        <publication_name>
+          <name>releaseExclusiveAccess_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="releaseExclusiveAcces_DR" base_name="CommandPattern" topic_filter="*Arbitration_Service_releaseExclusiveAccess*">
+        <subscription_name>
+          <name>releaseExclusiveAcces_DR</name>
+        </subscription_name>
+      </datareader_qos> 
+      <!--C_Commanding_Resource_allocationRequestAcknowledge -->
+      <datawriter_qos name="allocationRequestAcke_DW" base_name="CommandPattern" topic_filter="*C_Commanding_Resource_allocationRequestAcknowledge*">
+        <publication_name>
+          <name>allocationRequestAck_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="allocationRequestAck_DR" base_name="CommandPattern" topic_filter="*C_Commanding_Resource_allocationRequestAcknowledge*">
+        <subscription_name>
+          <name>allocationRequestAck_DR</name>
+        </subscription_name>
+      </datareader_qos>      
+      
+            <!-- ******************************************** Video Tracking Topics, Video_PSM.idl ******************************************** -->
+      <!--C_Video_Tracker_leadOnAtPos-->
+      <datawriter_qos name="VideoTrack_Start_DW" base_name="CommandPattern" topic_filter="*C_Video_Tracker_leadOnAtPos*">
+        <publication_name>
+          <name>VideoTrack_Start_DW</name>
+        </publication_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_Start_DR" base_name="CommandPattern" topic_filter="*C_Video_Tracker_leadOnAtPos*">
+        <subscription_name>
+          <name>VideoTrack_Start_DR</name>
+        </subscription_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datareader_qos>
+      <!--C_Video_Tracker_deleteAllTracks-->
+      <datawriter_qos name="VideoTrack_Stop_DW" base_name="CommandPattern" topic_filter="*C_Video_Tracker_deleteAllTracks*">
+        <publication_name>
+          <name>VideoTrack_Stop_DW</name>
+        </publication_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_Stop_DR" base_name="CommandPattern" topic_filter="*C_Video_Tracker_deleteAllTracks*">
+        <subscription_name>
+          <name>VideoTrack_Stop_DR</name>
+        </subscription_name>
+        <resource_limits>
+          <initial_samples>1</initial_samples>
+          <initial_instances>1</initial_instances>
+        </resource_limits>
+      </datareader_qos>
+      <!--C_Video_Tracker_Specification-->
+      <datawriter_qos name="VideoTrack_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Video_Tracker_Specification*">
+        <publication_name>
+          <name>VideoTrack_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*C_Video_Tracker_Specification*">
+        <subscription_name>
+          <name>VideoTrack_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Video_Tracker-->
+      <datawriter_qos name="VideoTrack_Status_DW" base_name="StatePattern" topic_filter="*C_Video_Tracker">
+        <publication_name>
+          <name>VideoTrack_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_Status_DR" base_name="StatePattern" topic_filter="*C_Video_Tracker">
+        <subscription_name>
+          <name>VideoTrack_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>      
+	  <!--For VG Project-->
+	  <!--C_Video_Tracker_Status_Ex-->
+      <datawriter_qos name="VideoTracker_Status_EX_DW" base_name="StatePattern" topic_filter="*C_Video_Tracker_Status_Ex*">
+        <publication_name>
+          <name>VideoTracker_Status_EX_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTracker_Status_EX_DR" base_name="StatePattern" topic_filter="*C_Video_Tracker_Status_Ex*">
+        <subscription_name>
+          <name>VideoTracker_Status_EX_DR</name>
+        </subscription_name>
+      </datareader_qos>      
+	  <!--C_Video_TrackedObject_Status_Ex-->
+      <datawriter_qos name="Video_TrackedObject_Status_Ex_DW" base_name="StatePattern" topic_filter="*C_Video_TrackedObject_Status_Ex*">
+        <publication_name>
+          <name>Video_TrackedObject_Status_Ex_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Video_TrackedObject_Status_Ex_DR" base_name="StatePattern" topic_filter="*C_Video_TrackedObject_Status_Ex*">
+        <subscription_name>
+          <name>Video_TrackedObject_Status_Ex_DR</name>
+        </subscription_name>
+      </datareader_qos>    
+	  <!--C_Video_Tracker_leadOnAtCenter-->
+      <datawriter_qos name="VideoTrack_leadOnAtCenter_DW" base_name="CommandPattern" topic_filter="*C_Video_Tracker_leadOnAtCenter*">
+        <publication_name>
+          <name>VideoTrack_leadOnAtCenter_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_leadOnAtCenter_DR" base_name="CommandPattern" topic_filter="*C_Video_Tracker_leadOnAtCenter*">
+        <subscription_name>
+          <name>VideoTrack_leadOnAtCenter_DR</name>
+        </subscription_name>
+      </datareader_qos>
+	  	  <!--C_Video_Tracker_StopTracking-->
+      <datawriter_qos name="VideoTrack_StopTrack_DW" base_name="CommandPattern" topic_filter="*C_Video_Tracker_StopTracking*">
+        <publication_name>
+          <name>VideoTrack_StopTrack_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VideoTrack_StopTrack_DR" base_name="CommandPattern" topic_filter="*C_Video_Tracker_StopTracking*">
+        <subscription_name>
+          <name>VideoTrack_StopTrack_DR</name>
+        </subscription_name>
+      </datareader_qos>
+	  <!--For VG Project END-->
+      <!-- ********************************************Virtual Commander, VC_Extension_PSM.idl ******************************************** -->
+      <!--C_VCA_Specification_Ex-->
+      <datawriter_qos name="VCA_Spec_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*C_VCA_Specification_Ex">
+        <publication_name>
+          <name>VCA_Spec_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Spec_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*C_VCA_Specification_Ex">
+        <subscription_name>
+          <name>VCA_Spec_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_VCA_Status_Ex-->
+      <datawriter_qos name="VCA_Status_DW" base_name="StatePattern" topic_filter="*C_VCA_Status_Ex*">
+        <publication_name>
+          <name>VCA_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Status_DR" base_name="StatePattern" topic_filter="*C_VCA_Status_Ex*">
+        <subscription_name>
+          <name>VCA_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>  
+      <!--C_VCA_Investigation_Plan_Ex-->
+      <datawriter_qos name="VCA_Inv_Plan_DW" base_name="StatePattern" topic_filter="*C_VCA_Investigation_Plan_Ex*">
+        <publication_name>
+          <name>VCA_Inv_Plan_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Inv_Plan_DR" base_name="StatePattern" topic_filter="*C_VCA_Investigation_Plan_Ex*">
+        <subscription_name>
+          <name>VCA_Inv_Plan_DR</name>
+        </subscription_name>
+      </datareader_qos>   
+      <!--C_VCA_Fire_Plan_Ex-->
+      <datawriter_qos name="VCA_Fire_Plan_DW" base_name="StatePattern" topic_filter="*C_VCA_Fire_Plan_Ex*">
+        <publication_name>
+          <name>VCA_Fire_Plan_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Fire_Plan_DR" base_name="StatePattern" topic_filter="*C_VCA_Fire_Plan_Ex*">
+        <subscription_name>
+          <name>VCA_Fire_Plan_DR</name>
+        </subscription_name>
+      </datareader_qos>     
+      <!--C_VCA_Operation_Cmd_Ex-->
+      <datawriter_qos name="VCA_Cmd_DW" base_name="CommandPattern" topic_filter="*C_VCA_Operation_Cmd_Ex*">
+        <publication_name>
+          <name>VCA_Cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Cmd_DR" base_name="CommandPattern" topic_filter="*C_VCA_Operation_Cmd_Ex*">
+        <subscription_name>
+          <name>VCA_cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>    
+      <!--C_Target_Status_Ex-->
+      <datawriter_qos name="VCA_Target_status_DW" base_name="StatePattern" topic_filter="*C_Target_Status_Ex*">
+        <publication_name>
+          <name>VCA_Target_status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Target_status_DR" base_name="StatePattern" topic_filter="*C_Target_Status_Ex*">
+        <subscription_name>
+          <name>VCA_Target_status_DR</name>
+        </subscription_name>
+      </datareader_qos> 
+      <!--C_VCA_Fire_Plan_Cmd_Ex-->
+      <datawriter_qos name="VCA_Fire_Plan_Cmd_DW" base_name="StatePattern" topic_filter="*C_VCA_Fire_Plan_Cmd_Ex*">
+        <publication_name>
+          <name>VCA_Fire_Plan_Cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VCA_Fire_Plan_Cmd_DR" base_name="StatePattern" topic_filter="*C_VCA_Fire_Plan_Cmd_Ex*">
+        <subscription_name>
+          <name>VCA_Fire_Plan_Cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_VC_Specification_Ex-->
+      <datawriter_qos name="C_VC_Specification_DW" base_name="ConfigurationSpecificationPattern" topic_filter="*C_VC_Specification_Ex*">
+        <publication_name>
+          <name>C_VC_Specification_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="C_VC_Specification_DR" base_name="ConfigurationSpecificationPattern" topic_filter="*C_VC_Specification_Ex*">
+        <subscription_name>
+          <name>C_VC_Specification_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_VC_Mission_Data_Ex-->
+      <datawriter_qos name="VC_Mission_Data_DW" base_name="StatePattern" topic_filter="*C_VC_Mission_Data_Ex*">
+        <publication_name>
+          <name>C_VC_Mission_Data_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VC_Mission_Data_DR" base_name="StatePattern" topic_filter="*C_VC_Mission_Data_Ex*">
+        <subscription_name>
+          <name>C_VC_Mission_Data_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_VC_Mission_Exec_Cmd_Ex-->
+      <datawriter_qos name="VC_Mission_Exec_Cmd_DW" base_name="CommandPattern" topic_filter="*C_VC_Mission_Exec_Cmd_Ex*">
+        <publication_name>
+          <name>C_VC_Mission_Exec_Cmd_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="VC_Mission_Exec_Cmd_DR" base_name="CommandPattern" topic_filter="*C_VC_Mission_Exec_Cmd_Ex*">
+        <subscription_name>
+          <name>C_VC_Mission_Exec_Cmd_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_VC_Mission_Status_Ex-->
+      <datawriter_qos name="C_VC_Mission_Status_DW" base_name="StatePattern" topic_filter="*C_VC_Mission_Status_Ex*">
+        <publication_name>
+          <name>C_VC_Mission_Status_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="C_VC_Mission_Status_DR" base_name="StatePattern" topic_filter="*C_VC_Mission_Status_Ex*">
+        <subscription_name>
+          <name>C_VC_Mission_Status_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      <!--C_Rtsp-->
+      <datawriter_qos name="C_Rtsp_DW" base_name="StatePattern" topic_filter="*C_Rtsp*">
+        <publication_name>
+          <name>C_Rtsp_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="C_Rtsp_DR" base_name="StatePattern" topic_filter="*C_Rtsp*">
+        <subscription_name>
+          <name>C_Rtsp_DR</name>
+        </subscription_name>
+      </datareader_qos>
+
+
+      <!-- Case no official topic qos defined -->
+      <datawriter_qos name="Default_DW" base_name="Baseline_Profile" topic_filter="*">
+        <publication_name>
+          <name>Default_DW</name>
+        </publication_name>
+      </datawriter_qos>
+      <datareader_qos name="Default_DR" base_name="Baseline_Profile" topic_filter="*">
+        <subscription_name>
+          <name>Default_DR</name>
+        </subscription_name>
+      </datareader_qos>
+      
+    </qos_profile>
+  </qos_library>
+</dds>

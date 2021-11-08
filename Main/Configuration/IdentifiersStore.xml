@@ -1,0 +1,563 @@
+<?xml version="1.0" ?>
+<root creation_date="05-11-2021_16-46-58" generated_by="TC34630" name="IdentifiersStore">
+	<ResourceStruct index="0" name="NOGA_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="1" name="NOGA_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="2" name="NOGA_CAM_S" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">CAM_S</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_CAM_S</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="3" name="NOGA_LRF" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">LRF</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">4</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_LRF</TypeName>
+		<Classification index="5" size="256" type="STRING">LRF</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="4" name="NOGA_VIDEO_SOURCE" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">VIDEO_SOURCE</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">5</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_VIDEO_SOURCE</TypeName>
+		<Classification index="5" size="256" type="STRING">Noga Sight Video source, Noga Direct video routing to tamar</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="5" name="NOGA_MOUNT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MOUNT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">6</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_MOUNT</TypeName>
+		<Classification index="5" size="256" type="STRING">Noga sight mount capabilities</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="6" name="NOGA_MARKER" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MARKER</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">7</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_MARKER</TypeName>
+		<Classification index="5" size="256" type="STRING">Noga sight Marker tactical effector</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="7" name="NOGA_TACT_SENSOR" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">TACT_SENSOR</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">8</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_TACT_SENSOR</TypeName>
+		<Classification index="5" size="256" type="STRING">Noga sight  tactical sensor for detections</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="8" name="NOGA_PANORAMA" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NOGA</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">PANORAMA</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">1</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">9</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NOGA_PANORAMA</TypeName>
+		<Classification index="5" size="256" type="STRING">Panorama Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="9" name="TAMAR_DISPLAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TAMAR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DISPLAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">2</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TAMAR_DISPLAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Commander Display</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="10" name="FNC_ROUTING" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">FNC</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">ROUTING</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">3</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">FNC_ROUTING</TypeName>
+		<Classification index="5" size="256" type="STRING">FNC Video source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="11" name="FNC_TRACKER_GS" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">FNC</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">TRACKER_GS</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">3</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">FNC_TRACKER_GS</TypeName>
+		<Classification index="5" size="256" type="STRING">FNC video tracker gunner sight</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="12" name="FNC_TRACKER_CS" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">FNC</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">TRACKER_CS</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">3</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">FNC_TRACKER_CS</TypeName>
+		<Classification index="5" size="256" type="STRING">FNC video tracker commander sight</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="13" name="GS_MOUNT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">GS</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MOUNT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">4</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">GS_MOUNT</TypeName>
+		<Classification index="5" size="256" type="STRING">Gunner sight  Mount (leshem)</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="14" name="GS_LESHEM_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">GS</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">LESHEM_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">4</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">GS_LESHEM_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Leshem Day/Swir cam  Video  Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="15" name="GS_VIDEO_SOURCE" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">GS</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">VIDEO_SOURCE</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">4</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">GS_VIDEO_SOURCE</TypeName>
+		<Classification index="5" size="256" type="STRING">Gunner Sight Video source- Idan Night channel, Leshem Day/Swir Channel, Leshem Direct video routing to tamar</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="16" name="GS_IDAN_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">GS</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">IDAN_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">4</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">4</ModuleID>
+		<TypeName index="4" size="20" type="STRING">GS_IDAN_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Idan Night channel Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="17" name="HANDLE_COMMANDER" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HANDLE</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">COMMANDER</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">5</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HANDLE_COMMANDER</TypeName>
+		<Classification index="5" size="256" type="STRING">Commander handle</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="18" name="TURRET_MOUNT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MOUNT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_MOUNT</TypeName>
+		<Classification index="5" size="256" type="STRING">Yamab - Turret mount</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="19" name="TURRET_LRF" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">LRF</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_LRF</TypeName>
+		<Classification index="5" size="256" type="STRING">Turret(Yamab) Range- system range</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="20" name="TURRET_FCS" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">FCS</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_FCS</TypeName>
+		<Classification index="5" size="256" type="STRING">Yamab FCS Tactical Effector</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="21" name="TURRET_GUN" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">GUN</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">4</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_GUN</TypeName>
+		<Classification index="5" size="256" type="STRING">Yamab Gun Weapon</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="22" name="TURRET_MIKLA" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MIKLA</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">5</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_MIKLA</TypeName>
+		<Classification index="5" size="256" type="STRING">Yamab 0.5 Weapon</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="23" name="TURRET_MAG" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">TURRET</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MAG</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">6</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">6</ModuleID>
+		<TypeName index="4" size="20" type="STRING">TURRET_MAG</TypeName>
+		<Classification index="5" size="256" type="STRING">Yamab MAG Weapon</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="24" name="HULL_MOUNT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HULL</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MOUNT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">7</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HULL_MOUNT</TypeName>
+		<Classification index="5" size="256" type="STRING">Hull mount</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="25" name="HULL_DRV_CAM_FRONT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HULL</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DRV_CAM_FRONT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">7</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HULL_DRV_CAM_FRONT</TypeName>
+		<Classification index="5" size="256" type="STRING">Video stream Hull video front</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="26" name="HULL_DRV_CAM_BACK" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HULL</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DRV_CAM_BACK</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">7</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HULL_DRV_CAM_BACK</TypeName>
+		<Classification index="5" size="256" type="STRING">Video stream Hull video back</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="27" name="HULL_VID_SRC_FRONT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HULL</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">VID_SRC_FRONT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">7</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">4</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HULL_VID_SRC_FRONT</TypeName>
+		<Classification index="5" size="256" type="STRING">Hul front video video source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="28" name="HULL_VID_SRC_BACK" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">HULL</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">VID_SRC_BACK</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">7</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">5</ModuleID>
+		<TypeName index="4" size="20" type="STRING">HULL_VID_SRC_BACK</TypeName>
+		<Classification index="5" size="256" type="STRING">Hul back video video source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="29" name="NAVIGATION_TMAPS" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NAVIGATION</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">TMAPS</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">8</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NAVIGATION_TMAPS</TypeName>
+		<Classification index="5" size="256" type="STRING">Main navigation device</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="30" name="SAPIR_DISPLAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DISPLAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_DISPLAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Commander Display</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="31" name="SAPIR_MOUNT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">MOUNT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_MOUNT</TypeName>
+		<Classification index="5" size="256" type="STRING">Sapir Mount</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="32" name="SAPIR_ROUTING" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">ROUTING</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_ROUTING</TypeName>
+		<Classification index="5" size="256" type="STRING">Sapir Routing</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="33" name="SAPIR_VIDEO_SRC" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">VIDEO_SRC</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">4</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_VIDEO_SRC</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="34" name="SAPIR_DIRECT_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DIRECT_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">5</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_DIRECT_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="35" name="SAPIR_DIRECT_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DIRECT_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">6</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_DIRECT_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="36" name="SAPIR_F_VIDEO_SRC" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_VIDEO_SRC</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">7</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_VIDEO_SRC</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="37" name="SAPIR_F_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">8</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="38" name="SAPIR_F_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">9</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="39" name="SAPIR_F_ATR_DAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_ATR_DAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">10</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_ATR_DAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="40" name="SAPIR_F_ATR_NIGHT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_ATR_NIGHT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">11</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_ATR_NIGHT</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="41" name="SAPIR_F_ATR_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">F_ATR_FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">12</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_F_ATR_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="42" name="SAPIR_R_VIDEO_SRC" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_VIDEO_SRC</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">13</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_VIDEO_SRC</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="43" name="SAPIR_R_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">14</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="44" name="SAPIR_R_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">15</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="45" name="SAPIR_R_ATR_DAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_ATR_DAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">16</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_ATR_DAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="46" name="SAPIR_R_ATR_NIGHT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_ATR_NIGHT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">17</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_ATR_NIGHT</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="47" name="SAPIR_R_ATR_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">R_ATR_FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">18</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_R_ATR_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="48" name="SAPIR_L_VIDEO_SRC" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_VIDEO_SRC</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">19</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_VIDEO_SRC</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="49" name="SAPIR_L_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">20</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="50" name="SAPIR_L_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">21</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="51" name="SAPIR_L_ATR_DAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_ATR_DAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">22</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_ATR_DAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="52" name="SAPIR_L_ATR_NIGHT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_ATR_NIGHT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">23</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_ATR_NIGHT</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="53" name="SAPIR_L_ATR_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">L_ATR_FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">24</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_L_ATR_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="54" name="SAPIR_B_VIDEO_SRC" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_VIDEO_SRC</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">25</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_VIDEO_SRC</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Source</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="55" name="SAPIR_B_CAM_D" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_CAM_D</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">26</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_CAM_D</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="56" name="SAPIR_B_CAM_N" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_CAM_N</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">27</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_CAM_N</TypeName>
+		<Classification index="5" size="256" type="STRING">Video Stream</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="57" name="SAPIR_B_ATR_DAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_ATR_DAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">28</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_ATR_DAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="58" name="SAPIR_B_ATR_NIGHT" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_ATR_NIGHT</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">29</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_ATR_NIGHT</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="59" name="SAPIR_B_ATR_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">SAPIR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">B_ATR_FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">9</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">30</ModuleID>
+		<TypeName index="4" size="20" type="STRING">SAPIR_B_ATR_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Tactical Sensor</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="60" name="GUNNER_DISPLAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">GUNNER</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DISPLAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">10</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">GUNNER_DISPLAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Gunner Display</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="61" name="LOADER_DISPLAY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">LOADER</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">DISPLAY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">11</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">LOADER_DISPLAY</TypeName>
+		<Classification index="5" size="256" type="STRING">Loader Display</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="62" name="AC_SYSTEM" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">AC</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">SYSTEM</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">12</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">AC_SYSTEM</TypeName>
+		<Classification index="5" size="256" type="STRING">Platform System</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="63" name="RENAISSANCE_SYSTEM" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">RENAISSANCE</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">SYSTEM</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">13</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">RENAISSANCE_SYSTEM</TypeName>
+		<Classification index="5" size="256" type="STRING">Renaissance computer</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="64" name="MISSION_NOGA_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">MISSION</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">NOGA_FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">14</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">MISSION_NOGA_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Mission Layer Noga fusion engine</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="65" name="MISSION_PRIORITY" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">MISSION</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">PRIORITY</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">14</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">MISSION_PRIORITY</TypeName>
+		<Classification index="5" size="256" type="STRING">Mission Layer prioritization engine</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="66" name="MISSION_FUSION_AREA" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">MISSION</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">FUSION_AREA</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">14</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">3</ModuleID>
+		<TypeName index="4" size="20" type="STRING">MISSION_FUSION_AREA</TypeName>
+		<Classification index="5" size="256" type="STRING">Mission Layer aerial fusion engine</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="67" name="RADAR_SENSOR" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">RADAR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">SENSOR</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">15</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">RADAR_SENSOR</TypeName>
+		<Classification index="5" size="256" type="STRING">Elta radar raw</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="68" name="RADAR_FUSION" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">RADAR</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">FUSION</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">15</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">2</ModuleID>
+		<TypeName index="4" size="20" type="STRING">RADAR_FUSION</TypeName>
+		<Classification index="5" size="256" type="STRING">Elta radar fusion</Classification>
+	</ResourceStruct>
+	<ResourceStruct index="69" name="NAMER_TACT_SENSOR" type="STRUCT">
+		<SystemDescriptor index="0" size="20" type="STRING">NAMER</SystemDescriptor>
+		<ModuleDescriptor index="1" size="20" type="STRING">TACT_SENSOR</ModuleDescriptor>
+		<SystemID index="2" size="2" type="UINT16_T">16</SystemID>
+		<ModuleID index="3" size="2" type="UINT16_T">1</ModuleID>
+		<TypeName index="4" size="20" type="STRING">NAMER_TACT_SENSOR</TypeName>
+		<Classification index="5" size="256" type="STRING">Namer tactical sensor</Classification>
+	</ResourceStruct>
+</root>

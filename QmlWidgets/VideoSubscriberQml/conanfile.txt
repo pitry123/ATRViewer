@@ -1,0 +1,5 @@
+[requires]
+Infrastructure/1.0.18@Framework2.development/unstable
+
+[generators]
+qmake
